@@ -1,43 +1,43 @@
-# Project: API Chaining with Docker Compose
+# 🚀 Project: API Chaining with Docker Compose
 
-## Description
-This project sets up two APIs using Flask:
-- API1 listens on port 5000 and forwards the request to API2
-- API2 listens on port 5001 and returns "Hello World from API2"
-- Logs are printed by both APIs using the logging module
+## 📋 Description
+This project demonstrates how to chain two Flask APIs using Docker Compose:
+- **API1** (port 5000): Receives requests and forwards them to API2.
+- **API2** (port 5001): Responds with `"Hello World from API2"`.
+- Both APIs use Python's `logging` module for logging.
 
-## Folder Structure
+## 📁 Folder Structure
 ```
-├───api1
+├── api1
 │   ├── app.py
 │   └── Dockerfile
-├───api2
+├── api2
 │   ├── app.py
 │   └── Dockerfile
 ├── docker-compose.yml
 └── README.md
 ```
 
-## How to Deploy
-1. Clone or download this repository
-2. Navigate to the root project directory
-3. Run the following command:
-```bash
-docker-compose up --build
-```
+## 🚦 Deployment Steps
+1. **Clone or download** this repository.
+2. **Open a terminal** and navigate to the project root directory.
+3. **Build and start** the containers:
+   ```bash
+   docker-compose up --build
+   ```
 
-## How to Test
-Once the containers are up:
-- Open your browser or use curl to access API1
-```bash
-curl http://localhost:5000/api
-```
+## 🧪 How to Test
+After the containers are running:
+- Open your browser or use `curl` to access API1:
+  ```bash
+  curl http://localhost:5000/api
+  ```
 - You should see a response like:
-```
-[API1] Received -> Hello World from API2
-```
+  ```
+  [API1] Received -> Hello World from API2
+  ```
 
-## Notes
-- API1 and API2 are separate containers and communicate via service names defined in docker-compose
-- Make sure Docker is installed and running
-- All source code and Dockerfiles are located inside their respective folders
+## 📝 Notes
+- API1 and API2 run in separate containers and communicate using service names defined in `docker-compose.yml`.
+- Ensure Docker is installed and running on your system.
+- All source code and Dockerfiles are located inside their respective folders.
