@@ -38,7 +38,7 @@ After the containers are running:
   ```
 - You should see a response like:
   ```
-  [API1] Received -> Hello World from API2
+  [API1] Received -> Hello Hackathon from API2
   ```
 
 
