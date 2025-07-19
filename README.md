@@ -19,7 +19,11 @@ This project demonstrates how to chain two Flask APIs using Docker Compose:
 ```
 
 ## 🚦 Deployment Steps
-1. **Clone or download** this repository.
+1. **Clone or download** this repository:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
 2. **Open a terminal** and navigate to the project root directory.
 3. **Build and start** the containers:
    ```bash
@@ -36,6 +40,8 @@ After the containers are running:
   ```
   [API1] Received -> Hello World from API2
   ```
+
+
 
 ## 📝 Notes
 - API1 and API2 run in separate containers and communicate using service names defined in `docker-compose.yml`.
