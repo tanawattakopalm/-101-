@@ -34,7 +34,7 @@ This project demonstrates how to chain two Flask APIs using Docker Compose:
 After the containers are running:
 - Open your browser or use `curl` to access API1:
   ```bash
-  curl http://localhost:5000/api
+  curl http://127.0.0.1:5000/API_1
   ```
 - You should see a response like:
   ```
