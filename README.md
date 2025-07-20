@@ -20,13 +20,13 @@ This project demonstrates how to chain two Flask APIs using Docker Compose:
 
 ## 📁 Folder Structure
 ├── api1
-│ ├── app.py # API1 Flask application
-│ └── Dockerfile # Dockerfile for API1
+│   ├── app.py
+│   └── Dockerfile
 ├── api2
-│ ├── app.py # API2 Flask application
-│ └── Dockerfile # Dockerfile for API2
-├── docker-compose.yml # Docker orchestration file
-└── README.md # This file
+│   ├── app.py
+│   └── Dockerfile
+├── docker-compose.yml
+└── README.md
 ```
 
 ## 🚦 Deployment Steps
