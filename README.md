@@ -61,9 +61,6 @@ After the containers are running:
   ✅ You can change Palm to any other name in the URL to test different inputs.
   ```
 
-
-
-
 ## 📝 Notes
 - API1 and API2 run in separate containers and communicate using service names defined in `docker-compose.yml`.
 - Ensure Docker is installed and running on your system.
