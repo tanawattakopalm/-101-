@@ -59,9 +59,8 @@ After the containers are running:
     },
     "source": "API1"
   }
-  ✅ You can change Palm to any other name in the URL to test different inputs.
   ```
-
+✅ You can change Palm to any other name in the URL to test different inputs.
 
 
 ## 📝 Notes
