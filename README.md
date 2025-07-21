@@ -2,7 +2,7 @@
 
 ## 📋 Description
 This project demonstrates how to chain two Flask APIs using Docker Compose:
-- **API1** (port 5000): Receives a `GET` request from the user and forwards it to API2, then returns the combined JSON response.
+- **API1** (port 5000): Receives a `GET` or `POST` request from the user and forwards it to API2, then returns the combined JSON response.
 - **API2** (port 5001): Responds with a message, timestamp, and optional username.
 - Both APIs use Python's `logging` module for logging activity.
 
@@ -10,10 +10,13 @@ This project demonstrates how to chain two Flask APIs using Docker Compose:
 
 ## ⚙️ Features
 - 🔗 Chained communication: API1 calls API2 internally using HTTP.
-- ✅ Method: `GET` with query parameters.
+- ✅ Methods Supported: `GET` (with query string) and `POST` (with JSON payload).
 - 🕒 Adds current timestamp using `datetime`.
-- 👤 Supports username passed via query string (`?user=YourName`).
+- 👤 Supports username passed via:
+  - `GET`: `?user=YourName`
+  - `POST`: JSON payload `{ "user": "YourName" }`
 - 🔄 Full JSON Response with all info.
+- 📄 Structured logging using Python `logging` module.
 - 🐳 Containerized with **Docker Compose**.
 
 ---
@@ -44,26 +47,51 @@ This project demonstrates how to chain two Flask APIs using Docker Compose:
 
 ## 🧪 How to Test
 After the containers are running:
-- Open your browser or use `curl` to access API1:
-  ```
-  curl http://127.0.0.1:5000/API_1?user=Palm
-  ```
-- You should see a response like:
-  ```
-  {
-    "received_from_api2": {
-      "message": "Hello Hackathon from API2",
-      "source": "API2",
-      "timestamp": "2025-07-20T15:28:17.229544",
-      "user": "Palm"
-    },
-    "source": "API1"
-  }
-  ```
-✅ You can change Palm to any other name in the URL to test different inputs.
+🔹 GET Request
+  Use a web browser or curl to send a GET request:
+    ```
+    curl http://127.0.0.1:5000/API_1?user=Palm
+
+    ```
+  ✅ Response Example
+    ```
+    {
+      "source": "API1",
+      "method": "GET",
+      "received_from_api2": {
+        "source": "API2",
+        "message": "Hello Hackathon from API2",
+        "timestamp": "2025-07-20T15:28:17.229544",
+        "user": "Palm"
+      }
+    }
+    ```
+🔸 POST Request
+  Send a JSON body using curl or Postman:
+    ```
+    curl -X POST http://127.0.0.1:5000/API_1 \
+     -H "Content-Type: application/json" \
+     -d '{"user": "Palm"}'
+
+    ```
+  ✅ Response Example
+    ```
+    {
+      "source": "API1",
+      "method": "POST",
+      "received_from_api2": {
+        "source": "API2",
+        "message": "Hello Hackathon from API2",
+        "timestamp": "2025-07-20T15:28:17.229544",
+        "user": "Palm"
+      }
+    }
+    ```
+📌 Tip: You can change "Palm" to any name to test dynamic input.
 
 
 ## 📝 Notes
-- API1 and API2 run in separate containers and communicate using service names defined in `docker-compose.yml`.
+- API1 and API2 run in separate containers and communicate using service names defined in docker-compose.yml.
 - Ensure Docker is installed and running on your system.
 - All source code and Dockerfiles are located inside their respective folders.
+- Logs will appear in the terminal where you run docker-compose.
