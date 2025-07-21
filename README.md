@@ -87,6 +87,7 @@ After the containers are running:
       }
     }
     ```
+
 📌 Tip: You can change "Palm" to any name to test dynamic input.
 
 
